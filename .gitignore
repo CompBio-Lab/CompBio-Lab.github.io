@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+*_cache
+*_files
+_book
+*.md
+!CODE_OF_CONDUCT.md
+/*.html
+tmp-pdfcrop-*
+figures
+/.quarto/
