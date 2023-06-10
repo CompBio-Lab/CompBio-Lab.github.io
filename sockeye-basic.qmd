@@ -1,0 +1,73 @@
+---
+engine: knitr
+---
+```{r, setup, include=FALSE}
+# Set current file codes to not be evaluated
+knitr::opts_chunk$set(
+  eval=FALSE
+)
+```
+# Sockeye 
+
+Sockeye is a High Performance Computing (HPC) platform, use it to run large computational analysis or works here.
+
+## Login
+
+To login into the remote server of **Sockeye**, use the following code as template:
+```{bash arc-login}
+ssh cwl@arc.sockeye.ubc.ca
+```
+
+:::{.callout-tip}
+Advanced usage is to configurate your `ssh` locally and setup a key to login into Sockeye without password
+:::
+
+### Setup SSH configuration for Sockeye
+
+Follow these steps depending on your OS (Windows/Linux/MacOs) to setup a proper SSH configuration for Sockeye server. Note, you could apply this same process to any other remote server of your choice:
+
+1. Generate a new pair of ssh keys
+2. Copy the **public** key from the generated pair to sockeye
+3. Add `Host`, `HostName`, `User` into `~/.ssh/config` in your local (see below)
+
+#### Windows Powershell
+To generate a new `ssh` key:
+```{bash gen-shh-win, eval=FALSE}
+ssh-keygen -t rsa
+```
+
+To add your newly created ssh key (public) to server:
+```{bash add-key-win, eval=FALSE}
+type $env:USERPROFILE\.ssh\id_rsa.pub | ssh cwl@sockeye.arc.ubc.ca "cat >> .ssh/authorized_keys"
+```
+
+#### Linux
+
+To generate a new `ssh` key:
+```{bash gen-shh-linux, eval=FALSE}
+ssh-keygen -t rsa
+```
+
+To add your newly created `ssh` key (public) to server:
+```{bash add-key-linux, eval=FALSE}
+ssh-copy-id -i ~/.ssh/id_rsa.pub cwl@sockeye.arc.ubc.ca
+```
+
+#### MacOS
+
+To generate a new `ssh` key, remember to replace `cwl`:
+```{bash gen-shh-mac, eval=FALSE}
+ssh-keygen -t rsa
+```
+
+To add your newly created ssh key (public) to server:
+```{bash add-key-mac, eval=FALSE}
+cat ~/.ssh/id_rsa.pub | ssh cwl@sockeye.arc.ubc.ca 'cat >> /home/user/.ssh/authorized_keys'
+```
+
+:::{.callout-caution}
+Careful with accidentally copying your private `id_*` key without the `.pub` extension to the server of your choice
+:::
+
+
+## Job Submission
