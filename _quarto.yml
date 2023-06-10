@@ -3,14 +3,16 @@ project:
 
 book:
   title: "cbl_book"
-  author: "Jane Doe"
-  date: "2023-06-08"
+  author: "CompBio Lab"
+  date: today
   chapters:
     - index.qmd
     - intro.qmd
     - summary.qmd
     - references.qmd
-
+  repo-actions:
+    - source
+  repo-url: "https://github.com/CompBio-Lab/CompBio-Lab.github.io"
 bibliography: references.bib
 
 format:
