@@ -32,7 +32,7 @@ Follow these steps depending on your OS (Windows/Linux/MacOs) to setup a proper 
 
 #### Windows Powershell
 To generate a new `ssh` key:
-```{bash gen-shh-win, eval=FALSE}
+```{bash gen-shh-win}
 ssh-keygen -t rsa
 ```
 
@@ -44,24 +44,24 @@ type $env:USERPROFILE\.ssh\id_rsa.pub | ssh cwl@sockeye.arc.ubc.ca "cat >> .ssh/
 #### Linux
 
 To generate a new `ssh` key:
-```{bash gen-shh-linux, eval=FALSE}
+```{bash gen-shh-linux}
 ssh-keygen -t rsa
 ```
 
 To add your newly created `ssh` key (public) to server:
-```{bash add-key-linux, eval=FALSE}
+```{bash add-key-linux}
 ssh-copy-id -i ~/.ssh/id_rsa.pub cwl@sockeye.arc.ubc.ca
 ```
 
 #### MacOS
 
 To generate a new `ssh` key, remember to replace `cwl`:
-```{bash gen-shh-mac, eval=FALSE}
+```{bash gen-shh-mac}
 ssh-keygen -t rsa
 ```
 
 To add your newly created ssh key (public) to server:
-```{bash add-key-mac, eval=FALSE}
+```{bash add-key-mac}
 cat ~/.ssh/id_rsa.pub | ssh cwl@sockeye.arc.ubc.ca 'cat >> /home/user/.ssh/authorized_keys'
 ```
 
