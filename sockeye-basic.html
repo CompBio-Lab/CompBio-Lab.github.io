@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="CompBio Lab">
-<meta name="dcterms.date" content="2023-08-07">
 
-<title>CompBio HandBook</title>
+<title>CompBio HandBook - 2&nbsp; Sockeye</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -66,7 +83,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./summary.html" rel="next">
+<link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -97,6 +115,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -109,7 +129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sockeye-basic.html">Sockeye</a></li><li class="breadcrumb-item"><a href="./sockeye-basic.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sockeye</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -139,7 +159,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -160,7 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sockeye-basic.html" class="sidebar-item-text sidebar-link">
+  <a href="./sockeye-basic.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sockeye</span></span></a>
   </div>
 </li>
@@ -188,35 +208,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#login" id="toc-login" class="nav-link active" data-scroll-target="#login"><span class="header-section-number">2.1</span> Login</a>
+  <ul>
+  <li><a href="#setup-ssh-configuration-for-sockeye-optional" id="toc-setup-ssh-configuration-for-sockeye-optional" class="nav-link" data-scroll-target="#setup-ssh-configuration-for-sockeye-optional"><span class="header-section-number">2.1.1</span> Setup SSH configuration for Sockeye (Optional)</a></li>
+  </ul></li>
+  <li><a href="#job-submission" id="toc-job-submission" class="nav-link" data-scroll-target="#job-submission"><span class="header-section-number">2.2</span> Job Submission</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/CompBio-Lab/CompBio-Lab.github.io/blob/main/index.qmd" class="toc-action">View source</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/CompBio-Lab/CompBio-Lab.github.io/blob/main/sockeye-basic.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CompBio HandBook</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sockeye</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>CompBio Lab </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 7, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -224,18 +236,161 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
+<p>Sockeye is a High Performance Computing (HPC) platform, use it to run large computational analysis or works here. Using this platform requires some knowledge to Linux system, also setup in your local computer. See <span class="citation" data-cites="sockeye">UBC Advanced Research Computing (<a href="references.html#ref-sockeye" role="doc-biblioref">2019</a>)</span> for additional information of the platform.</p>
+<p>In the following sections, for simplicity, we will differentiate these platforms by the following:</p>
+<ul>
+<li><p>Your PC/Laptop = <strong>Local</strong></p></li>
+<li><p>Sockeye = <strong>Remote</strong></p></li>
+</ul>
+<hr>
+<p><strong>Terminologies</strong></p>
+<p>keyword: as</p>
+<ul>
+<li>Node: Computer</li>
+<li>Job: Complex computation task</li>
+<li>Walltime: Maximum time allowed to run a job (give <span class="math inline">\(x + 1\)</span> hours for safe)</li>
+<li>Resources: Memory/Time/Nodes/Cores use to run a job</li>
+<li>Batch job: Usage for non-interactive scripts scheduled to be run</li>
+<li>Interactive job: Usage for testing scripts that requires some amount of resources</li>
+<li>Directory: folder</li>
+<li>Access: Read or write permission from user</li>
+<li>I/O: Input and Output</li>
+<li>Modules: <code>built-in</code> softwares, need to manual load for your use</li>
+<li>GUI: Graphical User Interface , any form of graphical “viewable” softwares</li>
+<li>Binary: Executable programs in the terminal, usually can be found by <code>which BIN_NAME</code>, i.e.&nbsp;<code>which ls</code>, and output is the path of the program.</li>
+<li>CLI: Command Line Interface, access from terminal to run binaries and any types of unix-style commands.</li>
+<li>“X” Space
+<ul>
+<li>Home: your personal directory (private)</li>
+<li>Scratch: directory to carry most computations</li>
+<li>Project: directory to store large files of any kind</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sockeye is a bit special in terms of write and read access from different nodes (more on this later). And, internet connection is not guaranteed everywhere.</p>
+</div>
+</div>
+<section id="login" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="login"><span class="header-section-number">2.1</span> Login</h2>
+<p>To login into the remote server of <strong>Sockeye</strong> for any platform of OS, use the following code as template and prompt it in your terminal:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> cwl@sockeye.arc.ubc.ca</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p>Replace <code>cwl</code> with your actual campus-wide-login username</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>Advanced usage is to configurate your <code>ssh</code> locally and setup a key to login into Sockeye without prompting password (2FA is still required). This complements with VSCode quite well</p>
+</div>
+</div>
+<section id="setup-ssh-configuration-for-sockeye-optional" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="setup-ssh-configuration-for-sockeye-optional"><span class="header-section-number">2.1.1</span> Setup SSH configuration for Sockeye (Optional)</h3>
+<p>Follow these steps depending on your OS (Windows/Linux/MacOs) to setup a proper SSH configuration for Sockeye server. Note, you could apply this same process to any other remote server of your choice:</p>
+<!---- 
+The indent for list and nested blocks is strict, requires to match with 
+first character of an item
+
+Check this link: https://github.com/quarto-dev/quarto-cli/discussions/3607
+------>
+<ol type="1">
+<li><p>Generate a new pair of ssh keys in your local</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p>You could accept the default setting of where the key is stored, by default it is in your home directory of <code>~</code>.</p>
+</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The program is also going to ask you if add a passphrase for more security, it is completely optional and up to your preference. This passphrase serves like another 2FA.</p>
+</div>
+</div></li>
+<li><p>Copy the <strong>public</strong> key from the generated pair to the remote</p>
+<p>For Windows Powershell:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span> <span class="va">$env</span>:USERPROFILE<span class="dt">\.</span>ssh<span class="dt">\i</span>d_rsa.pub <span class="kw">|</span> <span class="fu">ssh</span> cwl@sockeye.arc.ubc.ca <span class="st">"cat &gt;&gt; .ssh/authorized_keys"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For Mac:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_rsa.pub <span class="kw">|</span> <span class="fu">ssh</span> cwl@sockeye.arc.ubc.ca <span class="st">'cat &gt;&gt; /home/user/.ssh/authorized_keys'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For Linux:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-copy-id</span> <span class="at">-i</span> ~/.ssh/id_rsa.pub cwl@sockeye.arc.ubc.ca</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember to change the <strong>CWL</strong> argument here. And, careful with accidentally copying your private <code>id_*</code> key without the <code>.pub</code> extension to the server of your choice.</p>
+</div>
+</div></li>
+<li><p>Add <code>Host</code>, <code>HostName</code>, <code>User</code> into a file called <code>~/.ssh/config</code> in your local.</p>
+<p>The general flow is the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Host <span class="kw">&lt;shorthand_or_alias_of_your_choice&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  HostName  <span class="kw">&lt;server_host_domain&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  User  <span class="kw">&lt;username_on_server&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For sockeye, you could use the following snippet, remember to change the <strong>cwl</strong> argument</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Host  arc </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="st">  HostName sockeye.arc.ubc.ca</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="st">  User  cwl"</span> <span class="op">&gt;</span> ~/.ssh/config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p><code>~/.ssh/config</code> is the preffered place to safe ssh related configurations in most OS.</p>
+</blockquote></li>
+</ol>
+<p>After completing this setup, you dont have to prompt for password anymore when ssh into a server, however the 2FA is still required, any passphrase if any. In the case of Sockeye, the login simplifies to:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> arc <span class="co"># provided you followed previous steps</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or any other server you setup</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="op">&lt;</span>Host<span class="op">&gt;</span> # after providing Host, HostName, and User of a server in the config file</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="job-submission" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="job-submission"><span class="header-section-number">2.2</span> Job Submission</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-sockeye" class="csl-entry" role="listitem">
+UBC Advanced Research Computing. 2019. <span>“UBC ARC Sockeye.”</span> UBC Advanced Research Computing. <a href="https://doi.org/10.14288/SOCKEYE">https://doi.org/10.14288/SOCKEYE</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -474,10 +629,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./summary.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

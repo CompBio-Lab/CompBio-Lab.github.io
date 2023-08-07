@@ -2,29 +2,43 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "cbl_book",
+    "title": "CompBio HandBook",
     "section": "",
-    "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "intro.html",
     "href": "intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "See Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "sockeye-basic.html#login",
+    "href": "sockeye-basic.html#login",
+    "title": "2  Sockeye",
+    "section": "2.1 Login",
+    "text": "2.1 Login\nTo login into the remote server of Sockeye for any platform of OS, use the following code as template and prompt it in your terminal:\n\nssh cwl@sockeye.arc.ubc.ca\n\n\nReplace cwl with your actual campus-wide-login username\n\n\n\n\n\n\n\nTip\n\n\n\nAdvanced usage is to configurate your ssh locally and setup a key to login into Sockeye without prompting password (2FA is still required). This complements with VSCode quite well\n\n\n\n2.1.1 Setup SSH configuration for Sockeye (Optional)\nFollow these steps depending on your OS (Windows/Linux/MacOs) to setup a proper SSH configuration for Sockeye server. Note, you could apply this same process to any other remote server of your choice:\n\n\nGenerate a new pair of ssh keys in your local\n\nssh-keygen -t rsa\n\n\nYou could accept the default setting of where the key is stored, by default it is in your home directory of ~.\n\n\n\n\n\n\n\nNote\n\n\n\nThe program is also going to ask you if add a passphrase for more security, it is completely optional and up to your preference. This passphrase serves like another 2FA.\n\n\nCopy the public key from the generated pair to the remote\nFor Windows Powershell:\n\ntype $env:USERPROFILE\\.ssh\\id_rsa.pub | ssh cwl@sockeye.arc.ubc.ca \"cat &gt;&gt; .ssh/authorized_keys\"\n\nFor Mac:\n\ncat ~/.ssh/id_rsa.pub | ssh cwl@sockeye.arc.ubc.ca 'cat &gt;&gt; /home/user/.ssh/authorized_keys'\n\nFor Linux:\n\nssh-copy-id -i ~/.ssh/id_rsa.pub cwl@sockeye.arc.ubc.ca\n\n\n\n\n\n\n\nCaution\n\n\n\nRemember to change the CWL argument here. And, careful with accidentally copying your private id_* key without the .pub extension to the server of your choice.\n\n\nAdd Host, HostName, User into a file called ~/.ssh/config in your local.\nThe general flow is the following:\n\nHost &lt;shorthand_or_alias_of_your_choice&gt;\n  HostName  &lt;server_host_domain&gt;\n  User  &lt;username_on_server&gt;\n\nFor sockeye, you could use the following snippet, remember to change the cwl argument\n\necho \"Host  arc \n  HostName sockeye.arc.ubc.ca\n  User  cwl\" &gt; ~/.ssh/config\n\n\n~/.ssh/config is the preffered place to safe ssh related configurations in most OS.\n\n\nAfter completing this setup, you dont have to prompt for password anymore when ssh into a server, however the 2FA is still required, any passphrase if any. In the case of Sockeye, the login simplifies to:\n\nssh arc # provided you followed previous steps\n# or any other server you setup\nssh &lt;Host&gt; # after providing Host, HostName, and User of a server in the config file"
+  },
+  {
+    "objectID": "sockeye-basic.html#job-submission",
+    "href": "sockeye-basic.html#job-submission",
+    "title": "2  Sockeye",
+    "section": "2.2 Job Submission",
+    "text": "2.2 Job Submission\n\n\n\n\nUBC Advanced Research Computing. 2019. “UBC ARC Sockeye.” UBC Advanced Research Computing. https://doi.org/10.14288/SOCKEYE."
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "2  Summary",
+    "title": "3  Summary",
     "section": "",
-    "text": "1 + 1\n\n[1] 2"
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "references.html",
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.\n\n\nUBC Advanced Research Computing. 2019. “UBC ARC Sockeye.”\nUBC Advanced Research Computing. https://doi.org/10.14288/SOCKEYE."
   }
 ]
