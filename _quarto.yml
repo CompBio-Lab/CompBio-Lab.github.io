@@ -2,22 +2,34 @@ project:
   type: book
 
 book:
-  title: "cbl_book"
-  author: "Jane Doe"
-  date: "2023-06-08"
+  title: "CompBio HandBook"
+  author: "CompBio Lab"
+  # Evaluates to today's date
+  date: today
   chapters:
     - index.qmd
     - intro.qmd
+    - part: "Sockeye"
+      chapters:
+      - sockeye-basic.qmd
     - summary.qmd
     - references.qmd
-
+  # Allows to show source code of chapter
+  repo-actions:
+    - source
+  repo-url: "https://github.com/CompBio-Lab/CompBio-Lab.github.io"
 bibliography: references.bib
 
 format:
   html:
+    toc: true
+    toc-depth: 4
     theme: cosmo
+    crossref: 
+      chapters: true
   pdf:
     documentclass: scrreprt
-
+    crossref: 
+      chapters: true
 editor: visual
 
