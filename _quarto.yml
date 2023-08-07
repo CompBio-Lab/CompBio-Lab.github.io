@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: _book
 
 book:
   title: "CompBio HandBook"
@@ -18,6 +19,8 @@ book:
   repo-actions:
     - source
   repo-url: "https://github.com/CompBio-Lab/CompBio-Lab.github.io"
+  repo-branch: main
+
 bibliography: references.bib
 
 format:
