@@ -1,5 +1,6 @@
 ---
 engine: knitr
+format: html
 ---
 ```{r, setup, include=FALSE}
 #' Set current file codes to not be evaluated
@@ -22,6 +23,9 @@ In the following sections, for simplicity, we will differentiate these platforms
 
 **Terminologies**
 
+keyword:
+as
+
 - Node: Computer
 - Job: Complex computation task
 - Walltime: Maximum time allowed to run a job (give $x + 1$ hours for safe)
@@ -31,6 +35,10 @@ In the following sections, for simplicity, we will differentiate these platforms
 - Directory: folder
 - Access: Read or write permission from user
 - I/O: Input and Output
+- Modules: `built-in` softwares, need to manual load for your use
+- GUI: Graphical User Interface , any form of graphical "viewable" softwares
+- Binary: Executable programs in the terminal, usually can be found by `which BIN_NAME`, i.e. `which ls`, and output is the path of the program. 
+- CLI: Command Line Interface, access from terminal to run binaries and any types of unix-style commands.
 - "X" Space
   - Home: your personal directory (private)
   - Scratch: directory to carry most computations 
@@ -44,9 +52,9 @@ Sockeye is a bit special in terms of write and read access from different nodes 
 
 ## Login
 
-To login into the remote server of **Sockeye**, use the following code as template:
+To login into the remote server of **Sockeye** for any platform of OS, use the following code as template and prompt it in your terminal:
 ```{bash arc-login}
-ssh cwl@arc.sockeye.ubc.ca
+ssh cwl@sockeye.arc.ubc.ca
 ```
 
 > Replace `cwl` with your actual campus-wide-login username
@@ -59,48 +67,50 @@ Advanced usage is to configurate your `ssh` locally and setup a key to login int
 
 Follow these steps depending on your OS (Windows/Linux/MacOs) to setup a proper SSH configuration for Sockeye server. Note, you could apply this same process to any other remote server of your choice:
 
-1. Generate a new pair of ssh keys
-2. Copy the **public** key from the generated pair to sockeye
-3. Add `Host`, `HostName`, `User` into `~/.ssh/config` in your local (see below)
+<!---- 
+The indent for list and nested blocks is strict, requires to match with 
+first character of an item
 
-#### Windows Powershell
-To generate a new `ssh` key:
-```{bash gen-shh-win}
-ssh-keygen -t rsa
-```
+Check this link: https://github.com/quarto-dev/quarto-cli/discussions/3607
+------>
 
-To add your newly created ssh key (public) to server:
-```{bash add-key-win, eval=FALSE}
-type $env:USERPROFILE\.ssh\id_rsa.pub | ssh cwl@sockeye.arc.ubc.ca "cat >> .ssh/authorized_keys"
-```
+1.  Generate a new pair of ssh keys in your local
 
-#### Linux
+    ```{bash ssh-key-gen}
+    ssh-keygen -t rsa
+    ```
 
-To generate a new `ssh` key:
-```{bash gen-shh-linux}
-ssh-keygen -t rsa
-```
+    > You could accept the default setting of where the key is stored, by default it is in your home directory of `~`.
 
-To add your newly created `ssh` key (public) to server:
-```{bash add-key-linux}
-ssh-copy-id -i ~/.ssh/id_rsa.pub cwl@sockeye.arc.ubc.ca
-```
+    :::{.callout-note}
+    The program is also going to ask you if add a passphrase for more security, it is completely optional and up to your preference. This passphrase serves like another 2FA.
+    :::
 
-#### MacOS
+2.  Copy the **public** key from the generated pair to the remote
+    
+    For Windows Powershell:
 
-To generate a new `ssh` key, remember to replace `cwl`:
-```{bash gen-shh-mac}
-ssh-keygen -t rsa
-```
+    ```{bash add-key-win, eval=FALSE}
+    type $env:USERPROFILE\.ssh\id_rsa.pub | ssh cwl@sockeye.arc.ubc.ca "cat >> .ssh/authorized_keys"
+    ```
 
-To add your newly created ssh key (public) to server:
-```{bash add-key-mac}
-cat ~/.ssh/id_rsa.pub | ssh cwl@sockeye.arc.ubc.ca 'cat >> /home/user/.ssh/authorized_keys'
-```
+    For Mac:
 
-:::{.callout-caution}
-Careful with accidentally copying your private `id_*` key without the `.pub` extension to the server of your choice
-:::
+    ```{bash add-key-mac}
+    cat ~/.ssh/id_rsa.pub | ssh cwl@sockeye.arc.ubc.ca 'cat >> /home/user/.ssh/authorized_keys'
+    ```
+
+    For Linux:
+
+    ```{bash add-key-linux}
+    ssh-copy-id -i ~/.ssh/id_rsa.pub cwl@sockeye.arc.ubc.ca
+    ```
+
+    :::{.callout-caution}
+    Remember to change the **CWL** argument here. And, careful with accidentally copying your private `id_*` key without the `.pub` extension to the server of your choice.
+    :::
+3.  Add `Host`, `HostName`, `User` into `~/.ssh/config` in your local (see below)
+
 
 
 ## Job Submission
