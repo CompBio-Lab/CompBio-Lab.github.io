@@ -109,8 +109,32 @@ Check this link: https://github.com/quarto-dev/quarto-cli/discussions/3607
     :::{.callout-caution}
     Remember to change the **CWL** argument here. And, careful with accidentally copying your private `id_*` key without the `.pub` extension to the server of your choice.
     :::
-3.  Add `Host`, `HostName`, `User` into `~/.ssh/config` in your local (see below)
 
+3.  Add `Host`, `HostName`, `User` into a file called `~/.ssh/config` in your local.
+  
+    The general flow is the following:
+    ```{markdown}
+    Host <shorthand_or_alias_of_your_choice>
+      HostName  <server_host_domain>
+      User  <username_on_server>
+    ```
 
+    For sockeye, you could use the following snippet, remember to change the **cwl** argument
+
+    ```{bash config-ssh}
+    echo "Host  arc 
+      HostName sockeye.arc.ubc.ca
+      User  cwl" > ~/.ssh/config
+    ```
+
+    > `~/.ssh/config` is the preffered place to safe ssh related configurations in most OS.
+
+After completing this setup, you dont have to prompt for password anymore when ssh into a server, however the 2FA is still required, any passphrase if any. In the case of Sockeye, the login simplifies to:
+
+```{bash}
+ssh arc # provided you followed previous steps
+# or any other server you setup
+ssh <Host> # after providing Host, HostName, and User of a server in the config file
+```
 
 ## Job Submission
