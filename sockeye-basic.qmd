@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 # Sockeye 
 
 Sockeye is a High Performance Computing (HPC) platform, use it to run large computational analysis or works here.
-Using this platform requires some knowledge to Linux system, also setup in your local computer. 
+Using this platform requires some knowledge to Linux system, also setup in your local computer.  See @sockeye for additional information of the platform.
 
 In the following sections, for simplicity, we will differentiate these platforms by the following:
 
